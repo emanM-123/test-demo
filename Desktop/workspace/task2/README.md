@@ -1,3 +1,13 @@
+Task 2:
+Add support for real-time communication using WebSockets. The API should have the
+following features:
+● Authentication and authorization using JWT tokens.
+● Bidirectional communication between clients and servers using the Socket.IO
+library.
+● Broadcasting of messages to multiple clients using rooms or namespaces.
+● Integration with the existing RESTful API to enable real-time updates of resources.
+
+
 # task-2
 
 > 
