@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real-time communication with WebSockets</title>
+</head>
+<body>
+  <h1>Real-time communication with WebSockets</h1>
+
+  <form id="message-form">
+    <input type="text" id="message-input">
+    <button type="submit">Send</button>
+  </form>
+
+  <ul id="messages"></ul>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io({
+      query: {
+        token: 'my.jwt.token'
+      }
+    });
+
+    const messageForm = document.querySelector('#message-form');
+    const messageInput = document.querySelector('#message-input');
+    const messagesList = document.querySelector('#messages');
+    var messages = document.getElementById('messages');
+    var form = document.getElementById('message-form');
+    var input = document.getElementById('message-input');
+
+    // Add a new message to the UI
+    function addMessage(message) {
+        var li = document.createElement('li');
+        li.textContent = message;
+        messages.appendChild(li);
+    }
+
+    // Listen for messages from the server
+    socket.on('message', function(message) {
+        addMessage(message);
+    });
+
+    // Send a message to the server
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var message = input.value;
+        socket.emit('message', message);
+        addMessage('You: ' + message);
+        input.value = '';
+  });
+</script>
+
+</body>
+</html>
