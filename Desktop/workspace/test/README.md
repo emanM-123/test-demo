@@ -1,3 +1,16 @@
+Task 1:
+Build a RESTful API that allows users to create, read, update, and delete resources. The
+API should have the following features:
+● Authentication and authorization using JWT tokens.
+● Input validation and error handling to ensure data integrity and prevent attacks.
+● Integration with a database like MongoDB or PostgreSQL using an ORM like
+Sequelize or Mongoose.
+● Pagination and sorting of resources to enable efficient querying and browsing.
+● Caching of frequently accessed resources to improve performance and reduce
+load on the database.
+Using TypeScript to build the API will yield extra credits.
+
+
 # test-demo
 
 > 
